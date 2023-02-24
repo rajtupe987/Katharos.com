@@ -5,54 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login page</title>
-    <style>
-        #container{
-            height: auto;
-            width: 20%;
-            margin: auto;
-            border: 1px solid black;
-            text-align: center;
-        }
-        #container>input,button{
-            margin-top: 5px;
-            padding: 2%;
-        }
-     
-    </style>
+    <link rel="stylesheet" href="./styling/login.css">
 </head>
 <body>
-    <div id="container">
-        <h1>login page</h1>
-        <input type="text" id="email" placeholder="Enter your Email..">
-        <input type="password" id="pass" placeholder="Enter your password..">
-        <button onclick="onlogin()">Login</button>
+
+
+    <div id="form">
+
+        <div id="container">
+            <h1>Login here!</h1>
+              <p>Please fill in this form to Login to your account.</p>
+              <hr>
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email"  id="email">
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password"  id="pass">
+            <button onclick="onlogin()" class="registerbtn" >Register</button>
+        </div>
+
+        <div class="container signin">
+            <p>Don't Have an Acoount? <a href="#">Register here</a>.</p>
+          </div>
+
     </div>
+
+
+
+
 </body>
 </html>
 <script>
 
 
-    // const onlogin=()=>{
+    const onlogin=()=>{
          
-    //     payload={
-    //         email:document.getElementById("email").value,
-    //         pass:document.getElementById("pass").value
-    //     };
+        payload={
+            email:document.getElementById("email").value,
+            pass:document.getElementById("pass").value
+        };
     
-    //   fetch("https://odd-gray-lemur-veil.cyclic.app/users/login",{
-    //     method:"POST",
-    //     headers:{
-    //         "Content-type":"application/json"
-    //     },
-    //     body:JSON.stringify(payload)
-    //   }).then(res=>res.json())
-    //   .then(res=>{
-    //      console.log(res);
-    //      localStorage.setItem("token",res.token);
-    //      window.location.assign("../frontend/createpost.html")
-    //   })
-    //   .catch(err=>console.log(err))
-    // }
+      fetch("http://localhost:1300/member/login",{
+        method:"POST",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body:JSON.stringify(payload)
+      }).then(res=>res.json())
+      .then(res=>{
+         console.log(res);
+         localStorage.setItem("token",res.token);
+         window.location.assign("../frontend/index.html")
+      })
+      .catch(err=>console.log(err))
+    }
     
     
     </script>
