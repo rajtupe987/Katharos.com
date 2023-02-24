@@ -8,25 +8,30 @@ const userRoute=express.Router();
 
 userRoute.post("/register",async(req,res)=>{
 
-   const {name,email,age,gender,city,pass} = req.body;
-  
-   try {
-    
-    bcrypt.hash(pass,5,async(err,hash)=>{
-
-        if(err){
-            res.send(({"msg":"Sonmething went wrong"}))
-        }else{
-           const app= new usermodel({name,email,age,gender,city,pass:hash});
-           await app.save();
-            res.send(({"mag":"New user created"}))
-        }
-    })
-   } catch (error) {
-    res.send(({"msg":"Sonmething went wrong"}))
-   }
-
+    const {name,email,pass} = req.body;
    
+    const mail=await usermodel.find({"email":email});
+ 
+    if(mail.length>0){
+     res.send({"msg":"user alreay register plz login"})
+    }else{
+     try {
+     
+         bcrypt.hash(pass,5,async(err,hash)=>{
+     
+             if(err){
+                 res.send(({"msg":"Sonmething went wrong"}))
+             }else{
+                const app= new usermodel({name,email,pass:hash});
+                await app.save();
+                 res.send(({"mag":"New user created"}))
+             }
+         })
+        } catch (error) {
+         res.send(({"msg":"Sonmething went wrong"}))
+        }
+
+    }
 });
 
 
@@ -34,11 +39,11 @@ userRoute.post("/login",async(req,res)=>{
     
     try {
         const {email,pass}=req.body;
-        let user=await usermodel.find({email});
-        if(user.length>0){
-            bcrypt.compare(pass,user[0].pass,(err,result)=>{
+        let member=await usermodel.find({email});
+        if(member.length>0){
+            bcrypt.compare(pass,member[0].pass,(err,result)=>{
                 if(result){
-                    let token=jwt.sign({userId:user[0]._id},"raj");
+                    let token=jwt.sign({userId:member[0]._id},"kath");
                     res.send({"msg":"User Logged in","token":token});
                 }else{
                     res.send({"msg":"Wrong Credentials"})
@@ -51,6 +56,9 @@ userRoute.post("/login",async(req,res)=>{
         res.send({"msg":"Error while login"})
     }
 });
+
+
+
 
 userRoute.patch("/update/:id",async(req,res)=>{
     

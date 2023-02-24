@@ -2,15 +2,16 @@ const express=require("express");
 require("dotenv").config();
 const {connection}=require("./config/db");
 const {userRoute}=require("./Routes/user.route");
-
 const {authenticate}=require("./middleware/Auth.middleware");
 const cors=require("cors");
 
 
+const {womenRoute}=require("./Routes/women.route")
+
 
 const app=express();
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 app.get("/",(req,res)=>{
     res.send("WELCOME")
@@ -19,6 +20,8 @@ app.get("/",(req,res)=>{
 
 
 app.use("/member",userRoute);
+app.use("/women",womenRoute)
+app.use(authenticate)
 
 
 
