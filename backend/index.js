@@ -7,7 +7,9 @@ const cors=require("cors");
 
 
 
-const {mensRoute}=require("./Routes/Mens.routes")
+
+const {womenRoute}=require("./Routes/women.route")
+
 
 
 const app=express();
@@ -16,14 +18,21 @@ app.use(cors())
 
 app.get("/",(req,res)=>{
     res.send("WELCOME TO KATHORES")
+
+})
+
+app.use(cors());
+
+app.get("/",(req,res)=>{
+    res.send("WELCOME")
+
 });
 
 
+app.use("/member",userRoute);
+app.use("/women",womenRoute)
+app.use(authenticate)
 
-
-app.use("/mens",mensRoute);
-app.use("/users",userRoute);
- app.use(authenticate);
 
 
 

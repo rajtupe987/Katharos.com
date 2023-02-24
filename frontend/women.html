@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styling/women.css">
+    <script src="https://kit.fontawesome.com/70e0f6f431.js" crossorigin="anonymous"></script>
+
+    <style>
+        #maincontainer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        #maincontainer>img{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nav bar -->
+    <nav>
+        <div id="nav">
+            <div id="logo">
+                <img src="./NXM101-project.png" alt="">
+            </div>
+            <div class="search">
+                <div id="typesearch">
+                    <input type="search" placeholder="What are you looking for ?" id="search_item">
+                </div>
+                <div id="searchbtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 60px; margin-right: 40px;">
+                <i id="cart" class="fa-regular fa-credit-card"></i>
+                <i id="user" class="fa-solid fa-user"></i>
+                <i id="bag" class="fa-solid fa-bag-shopping"></i>
+            </div>
+        </div>
+        <div id="options">
+
+            <a href="">TOPS & SWEATERS</a>
+            <a id="womenclick"  href="./women.html">DRESSES</a>
+            <a href="">COATS & JACKETS</a>
+            <a href="">SLEEPWEAR</a>
+            <a href="">SHOES & ACCESSORIES</a>
+            <a href="">SWIMWEAR</a>
+
+        </div>
+    </nav>
+
+
+
+
+    <div id="maincontainer">
+ 
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+ 
+
+    // let womenclick = document.getElementById("womenclick")
+    // womenclick.addEventListener("click", () => {
+    //     maincontainer.innerHTML = null
+        
+    //     fetch("https://localhost:1300/women").then((res) => { 
+    //         console.log(res)
+    //         return res.json() 
+    //     })
+    //         .then((data) => {
+    //             console.log(data)
+    //             womendata(data)
+    //         })
+
+    // })
+
+
+
+//let Arr=JSON.parse(localStorage.getItem("cart"))||[];
+
+fetch("http://localhost:1300/women")
+  .then((res) => res.json())
+  .then((data) => {
+
+    console.log(data)
+    womendata(data)
+
+  }).catch((err)=>console.log(err))
+
+
+
+
+
+    function womendata(data) {
+
+        maincontainer.innerHTML = null
+       
+        data.forEach((element) => {
+
+            let card = document.createElement("div");
+        
+
+            let image = document.createElement("img");
+        
+            image.setAttribute("src", element.image)
+
+            let title = document.createElement("p")
+            title.innerText = element.title
+            
+
+
+
+            
+            let diss = document.createElement("p")
+            diss.innerText = element.diss
+           
+
+            let price = document.createElement("h3")
+            price.innerText = element.price
+            
+
+            let AddtoCart = document.createElement("button")
+            AddtoCart.innerText = "Add To Card"
+            
+            
+            card.append(image, title, diss, price, AddtoCart);
+
+            document.querySelector("#maincontainer").append(card)
+            
+        });
+    }
+
+</script>
