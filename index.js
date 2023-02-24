@@ -23,9 +23,7 @@ app.use("/member",userRoute);
 app.use("/women",womenRoute)
 app.use(authenticate)
 
-
-
-
+// console.log()
 app.listen(process.env.port,async()=>{
 
     try {
