@@ -46,7 +46,7 @@
         <div id="options">
 
             <a href="">TOPS & SWEATERS</a>
-            <a id="womenclick" onclick="womendata()" href="./women.html">DRESSES</a>
+            <a id="womenclick"  href="./women.html">DRESSES</a>
             <a href="">COATS & JACKETS</a>
             <a href="">SLEEPWEAR</a>
             <a href="">SHOES & ACCESSORIES</a>
@@ -55,9 +55,11 @@
         </div>
     </nav>
 
+
+
+
     <div id="maincontainer">
  
-        
     </div>
 
 
@@ -87,8 +89,6 @@
 
 
 
-let bag = [];
-
 //let Arr=JSON.parse(localStorage.getItem("cart"))||[];
 
 fetch("http://localhost:1300/women")
@@ -99,6 +99,7 @@ fetch("http://localhost:1300/women")
     womendata(data)
 
   }).catch((err)=>console.log(err))
+
 
 
 
@@ -120,6 +121,9 @@ fetch("http://localhost:1300/women")
             title.innerText = element.title
             
 
+
+
+            
             let diss = document.createElement("p")
             diss.innerText = element.diss
            
