@@ -1,0 +1,337 @@
+/* below navbar */
+#options {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* ALL about Navbar */
+* {
+    font-family: inter, sans-serif;
+    font-weight: 500;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+nav {
+    height: 140px;
+    width: 100%;
+    border: 1px solid black;
+}
+
+#nav {
+    width: 88%;
+    height: 35px;
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+
+    top: 0;
+    width: 90%;
+    left: 0;
+    right: 0;
+    height: 40px;
+    z-index: 2;
+}
+
+#nav>div:nth-child(3)>i {
+    display: flex;
+    gap: 50px;
+}
+
+
+#nav>div:hover {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+
+#logo {
+    width: 15%;
+}
+
+#logo>img {
+    width: 100%;
+}
+
+.search {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    border: 1px solid rgb(187, 187, 192);
+}
+
+
+
+#typesearch {
+    width: 70%;
+}
+
+#search_item {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    border: 0;
+    padding: 20px;
+    outline: none;
+
+}
+
+#search_item::placeholder {
+    color: rgb(190, 179, 179);
+}
+
+#searchbtn {
+    margin-top: 15px;
+}
+
+/* below options */
+h1 {
+    text-align: center;
+    font-size: 20px;
+}
+
+h5 {
+    text-align: center;
+    font-size: 18px;
+}
+h2{
+    text-align: center;
+}
+#deals {
+    height: 200px;
+    width: 90%;
+    
+    text-align: center;
+    background-color:#e00087;
+    color: white;
+    margin: auto;
+}
+
+#deals>div {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+
+}
+
+#deals>div>div {
+    background-color: #3a2a7c;
+    
+    padding-left: 30px;
+    padding-right: 30px;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+}
+
+
+/* advertisement of products */
+
+#adv1>div>img {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#buttons {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+   
+
+}
+
+#buttons>div>div>h4 {
+
+    height: 40px;
+    width: 100%;
+    
+    margin-top: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 10px;
+    text-align: center;
+    background-color: rgb(255, 60, 93);
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+
+}
+
+
+#buttons>div>div {
+    display: flex;
+}
+
+#adv2>div>img {
+    width: 100%;
+}
+
+#adv3 {
+    height: auto;
+    width: 100%;
+
+    display: flex;
+
+    margin: auto;
+    margin-top: 20px;
+
+}
+
+#adv3>div {
+
+    margin: auto;
+}
+
+#adv3>div>h4 {
+    height: 20px;
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    padding: 3%;
+    background-color: #3a2a7c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#adv3>div>img {
+    width: 100%;
+}
+
+
+#adv3>div:nth-child(2) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+
+#adv3>div:nth-child(2)>img {
+    width: 100%;
+}
+
+#adv3>div:nth-child(2)>div>h4 {
+    height: 20px;
+    width: 80%;
+
+    text-align: center;
+    margin: auto;
+    padding: 3%;
+    background-color: #3a2a7c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#adv4>div>img {
+    width: 10%;
+}
+
+#adv4 {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    width: 90%;
+    margin: auto;
+}
+
+#adv4>img {
+    width: 100%;
+}
+
+
+
+/* text on the image */
+.centered {
+    position: absolute;
+    top: 15%;
+    left: 1%;
+    color: black;
+    color: white;
+}
+
+.centered-btn {
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    color: black;
+    color: red;
+    
+    border-radius: 5px;
+    background-color: white;
+    padding: 2%;
+    cursor: pointer;
+}
+
+
+#adv5{
+    display: flex;
+    justify-content: space-evenly;
+
+    background-color: #3a2a7c;
+    color: white;
+    font-size: 20px;
+    width: 90%;
+    margin: auto
+}
+
+#adv5>div:nth-child(1){
+   
+    width: 35%;
+    display: grid;
+    align-content: center;
+    
+    text-align: center;
+}
+#adv5>div:nth-child(1)>h4{
+    height: 20px;
+    width: 50%;
+    
+    margin: auto;
+    padding: 3%;
+    background-color: white;
+    color: #3a2a7c;
+    font-size: 18px;
+    font-weight: bold;
+}
+#adv6{
+    display: flex;
+    gap: 5px;
+    width: 90%;
+    margin: auto;
+    margin: auto;
+}
+
+
+#footer{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(230, 230, 230);
+    margin-top: 30px;
+}
+#footer>div>h3{
+    font-weight: bold;
+}
+
+
+

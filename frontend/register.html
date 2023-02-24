@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup page</title>
+   <link rel="stylesheet" href="./styling/register.css">
+   <script src="https://kit.fontawesome.com/70e0f6f431.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Nav bar -->
+    <nav>
+        <div id="nav">
+            <div id="logo">
+                <img src="./NXM101-project.png" alt="">
+            </div>
+            <div class="search">
+                <div id="typesearch">
+                    <input type="search" placeholder="What are you looking for ?" id="search_item">
+                </div>
+                <div id="searchbtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 60px; margin-right: 40px;">
+                <i id="cart" class="fa-regular fa-credit-card"></i>
+                <i id="user" class="fa-solid fa-user"></i>
+                <i id="bag" class="fa-solid fa-bag-shopping"></i>
+            </div>
+        </div>
+        <div id="options">
+
+            <a href="">TOPS & SWEATERS</a>
+            <a href="">DRESSES</a>
+            <a href="">COATS & JACKETS</a>
+            <a href="">SLEEPWEAR</a>
+            <a href="">SHOES & ACCESSORIES</a>
+            <a href="">SWIMWEAR</a>
+
+        </div>
+    </nav>
+
+    <form action="/action_page.php">
+        <div class="container">
+          <h1>Register</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr>
+      
+          <label for="name"><b>Name</b></label>
+          <input type="text" placeholder="Enter name" name="nmae" id="name" required>
+          <label for="adress"><b>Address</b></label>
+          <input type="text" placeholder="Enter adress" name="address" id="adress" required>
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" id="email" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+      
+          <label for="psw-repeat"><b>Repeat Password</b></label>
+          <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+          <hr>
+          <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+      
+          <button type="submit" class="registerbtn">Register</button>
+        </div>
+        
+        <div class="container signin">
+          <p>Already have an account? <a href="#">Sign in</a>.</p>
+        </div>
+      </form>
+          <!-- footer part -->
+    <div id="footer">
+
+        <div>
+            <h3>Customer Service</h3>
+            <p>Contact U</p>
+            <p>Shopping Info</p>
+            <p>Shipping Info</p>
+            <p>Returns</p>
+            <p>Exchanges</p>
+            <p>Billing & Payment</p>
+            <p>Size & Fit</p>
+            <p>International</p>
+        </div>
+        <div>
+            <h3>My Account</h3>
+            <p>Sign In / Register</p>
+            <p>Track My Order</p>
+            <p>Return Order</p>
+            <p>Order History</p>
+            <p>Wishlist</p>
+            <p>Offers & Coupons</p>
+        </div>
+        <div>
+            <h3>Credit Card</h3>
+            <p>Apply Now</p>
+            <p>Learn More</p>
+            <p>Pay My Bill</p>
+            <p>Pay My Bill</p>
+            <p>Catalog</p>
+            <p>Order From Catalog</p>
+        </div>
+        <div>
+            <h3>Catherines</h3>
+            <p>About Us</p>
+            <p>About Fullbeauty Brands</p>
+            <p>Shipping To</p>
+            <p>Turkmenistan</p>
+            <div>
+                <img src="https://assets.pharmeasy.in/apothecary/images/Instagram.svg?dim=64x0" alt="">
+                <img src="https://assets.pharmeasy.in/apothecary/images/facebook.svg?dim=64x0" alt="">
+                <img src="https://assets.pharmeasy.in/apothecary/images/Youtube.svg?dim=64x0" alt="">
+                <img src="https://assets.pharmeasy.in/apothecary/images/Twitter.svg?dim=64x0" alt="">
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+
+// let signup=document.querySelector("#container")
+// const onSignup=()=>{
+     
+//     payload={
+//         name:document.getElementById("name").value,
+//         email:document.getElementById("email").value,
+//         gender:document.getElementById("gender").value,
+//         city:document.getElementById("city").value,
+//         age:document.getElementById("age").value,
+//         pass:document.getElementById("pass").value
+//     };
+
+    
+//   fetch("https://odd-gray-lemur-veil.cyclic.app/users/register",{
+//     method:"POST",
+//     headers:{
+//         "Content-type":"application/json"
+//     },
+//     body:JSON.stringify(payload)
+//   }).then(res=>res.json())
+//   .then(res=>{
+//      console.log(res);
+//      window.location.assign("../frontend/login.html");
+//   })
+//   .catch((err)=>console.log(err))
+// }
+
+
+</script>
