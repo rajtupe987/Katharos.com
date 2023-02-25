@@ -5,9 +5,18 @@ const authenticate=(req,res,next)=>{
     const token=req.headers.authorization;
 
     if(token){
+
+        jwt.verify(token,"raj",(err,decoded)=>{
+ 
+            if(decoded){
+                
+                 req.body.userId=decoded.userId
+                
+
         jwt.verify(token,"kath",(err,decoded)=>{
  
-            if(decoded){   
+            if(decoded){  
+             
                 next();
             }else{
                res.send({"msg":"Please Login"})
