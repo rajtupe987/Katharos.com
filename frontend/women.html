@@ -210,7 +210,7 @@
                 <img src="https://assets.pharmeasy.in/apothecary/images/Youtube.svg?dim=64x0" alt="">
                 <img src="https://assets.pharmeasy.in/apothecary/images/Twitter.svg?dim=64x0" alt="">
             </div>
-            
+
         </div>
     </div>
 
@@ -234,19 +234,25 @@
 
     let user = document.querySelector("#user");
 
-    setTimeout(() => {
-        user.addEventListener("click", () => {
+    user.addEventListener("click", () => {
+
+        setTimeout(() => {
             window.location.assign("./register.html")
-        })
-    }, 1000);
+        }, 1000);
+
+    })
 
     let bag = document.querySelector("#bag");
 
-    setTimeout(() => {
-        bag.addEventListener("click", () => {
+
+    bag.addEventListener("click", () => {
+
+        setTimeout(() => {
             window.location.assign("./bag.html")
-        })
-    }, 1000)
+        }, 1000)
+
+
+    })
 
     fetch("https://clean-turtleneck-shirt-calf.cyclic.app/women")
         .then((res) => {
