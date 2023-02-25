@@ -21,6 +21,10 @@ app.get("/",(req,res)=>{
 })
 
 
+
+
+
+
 app.use("/member",userRoute);
 app.use("/women",womenRoute);
 app.use("/sweter",sweterRoute);
