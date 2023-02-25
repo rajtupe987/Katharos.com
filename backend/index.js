@@ -6,24 +6,30 @@ const {authenticate}=require("./middleware/Auth.middleware");
 const cors=require("cors");
 
 
+
+
 const {womenRoute}=require("./Routes/women.route")
 const {sweterRoute}=require("./Routes/TOPS & SWEATERS")
 const {swimmerRoute}=require("./Routes/SWIMWEAR")
 const {sleepRoute}=require("./Routes/SLEEPWEAR")
 const {shoesRoute}=require("./Routes/SHOES & ACCESSORIES.routes")
 
+
 const app=express();
 app.use(express.json());
+app.use(cors())
+
+app.get("/",(req,res)=>{
+    res.send("WELCOME TO KATHORES")
+
+})
+
 app.use(cors());
 
 app.get("/",(req,res)=>{
     res.send("WELCOME")
-})
 
-
-
-
-
+});
 
 app.use("/member",userRoute);
 app.use("/women",womenRoute);
@@ -33,7 +39,7 @@ app.use("/sleep",sleepRoute);
 app.use("/shoes",shoesRoute)
 app.use(authenticate)
 
-// console.log()
+
 app.listen(process.env.port,async()=>{
 
     try {
