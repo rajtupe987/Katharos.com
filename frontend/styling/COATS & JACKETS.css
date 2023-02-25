@@ -115,32 +115,26 @@ nav {
 }
 
 
-/* No result found */
 
-#notavailable {
-    text-align: center;
-    margin-top: 150px;
-    display: none;
-}
 
-#notavailable> :nth-child(1) {
-    font-size: 20px;
-}
 
-#notavailable> :nth-child(2) {
-    font-size: 20px;
-}
 
-#notavailable> :nth-child(4) {
-    font-size: 40px;
-    margin-top: 50px;
-}
 
-#notavailable> :nth-child(5) {
-    font-size: 20px;
-    font-size: 15px;
-    color: rgb(148, 145, 145);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* footer PART */
@@ -153,4 +147,3 @@ nav {
 #footer>div>h3{
     font-weight: bold;
 }
-

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/70e0f6f431.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styling/bag.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <!-- Nav bar -->
+    <nav>
+        <div id="nav">
+            <div id="logo">
+                <img src="./NXM101-project.png" alt="">
+            </div>
+            <div class="search">
+                <div id="typesearch">
+                    <input type="search" placeholder="What are you looking for ?" id="search_item">
+                </div>
+                <div id="searchbtn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 60px; margin-right: 40px;">
+                <i id="cart" class="fa-regular fa-credit-card"></i>
+                <i id="user" class="fa-solid fa-user"></i>
+                <i id="bag" class="fa-solid fa-bag-shopping"></i>
+            </div>
+        </div>
+        <div id="options">
+
+            <a href="./TOPS & SWEATERS.html">TOPS & SWEATERS</a>
+            <a id="womenclick" href="./women.html">DRESSES</a>
+            <a href="./COATS & JACKETS.html">COATS & JACKETS</a>
+            <a href="./SLEEPWEAR.html">SLEEPWEAR</a>
+            <a href="./SHOES & ACCESSORIES.html">SHOES & ACCESSORIES</a>
+            <a href="./SWIMWEAR.html">SWIMWEAR</a>
+
+        </div>
+    </nav>
+
+
+
+    <!-- added Data to cart -->
+    <div id="addedData">
+
+    </div>
+
+    <!-- footer part -->
+    <div id="footer">
+
+        <div>
+            <h3>Customer Service</h3>
+            <p>Contact U</p>
+            <p>Shopping Info</p>
+            <p>Shipping Info</p>
+            <p>Returns</p>
+            <p>Exchanges</p>
+            <p>Billing & Payment</p>
+            <p>Size & Fit</p>
+            <p>International</p>
+        </div>
+        <div>
+            <h3>My Account</h3>
+            <p>Sign In / Register</p>
+            <p>Track My Order</p>
+            <p>Return Order</p>
+            <p>Order History</p>
+            <p>Wishlist</p>
+            <p>Offers & Coupons</p>
+        </div>
+        <div>
+            <h3>Credit Card</h3>
+            <p>Apply Now</p>
+            <p>Learn More</p>
+            <p>Pay My Bill</p>
+            <p>Pay My Bill</p>
+            <p>Catalog</p>
+            <p>Order From Catalog</p>
+        </div>
+        <div>
+            <h3>Catherines</h3>
+            <p>About Us</p>
+            <p>About Fullbeauty Brands</p>
+            <p>Shipping To</p>
+            <p>Turkmenistan</p>
+            <div>
+                <img src="https://assets.pharmeasy.in/apothecary/images/Instagram.svg?dim=64x0" alt="">
+                <img src="https://assets.pharmeasy.in/apothecary/images/facebook.svg?dim=64x0" alt="">
+                <img src="https://assets.pharmeasy.in/apothecary/images/Youtube.svg?dim=64x0" alt="">
+                <img src="https://assets.pharmeasy.in/apothecary/images/Twitter.svg?dim=64x0" alt="">
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    let user = document.querySelector("#user");
+
+setTimeout(() => {
+    user.addEventListener("click", () => {
+        window.location.assign("./register.html")
+    })
+}, 1000);
+
+let bag = document.querySelector("#bag");
+
+setTimeout(() => {
+    bag.addEventListener("click", () => {
+        window.location.assign("./bag.html")
+    })
+}, 1000)
+
+// let username = localStorage.getItem("username")
+
+// document.querySelector("#username").innerText = `Hello, ${username}`
+
+
+let CartData = JSON.parse(localStorage.getItem("CartData")) || [];
+
+let emptycart = document.querySelector("#empty-cart");
+
+let logo = document.querySelector("#logo>img");
+
+logo.addEventListener("click", function (event) {
+    event.preventDefault()
+    location.href = "./index.html";
+})
+
+
+
+// let checkout = document.querySelector("#pay2");
+
+// checkout.addEventListener("click", function (event) {
+//     event.preventDefault()
+//     location.href = "/payment/payment.html";
+// })
+
+
+displaycard(CartData);
+
+// totalbill(CartData)
+
+// function totalbill(data) {
+//     let total = data.reduce((acc, el) => {
+//         return acc += el.price * el.quantity
+//     }, 0)
+//     document.querySelector("#totalp").innerText = total;
+
+// }
+
+
+function displaycard(data) {
+    let container = document.querySelector("#addedData")
+    container.textContent = null
+
+    // document.querySelector("#fav-total").innerText = data.length;
+    // document.querySelector("#prod").innerText = data.length;
+
+    data.forEach(el => {
+        let quantity = el.quantity
+        let div = document.createElement("div")
+        let img = document.createElement("img")
+        img.setAttribute("src", el.image)
+        let title = document.createElement("h2")
+        title.innerText = el.title.substring(0, 20)
+
+        let diss = document.createElement("p")
+        diss.innerText = el.diss;
+
+        let price = document.createElement("p")
+        price.innerText = el.price * quantity
+        price.style.fontWeight = 400
+
+
+        let plus = document.createElement("button")
+        plus.innerText = "+"
+        plus.classList = "plus"
+        plus.addEventListener("click", function () {
+            quantity++
+            cnt.innerText = quantity
+            el.quantity = quantity
+            price.innerText = el.price * quantity
+            el.total = el.price * quantity
+            localStorage.setItem("CartData", JSON.stringify(CartData))
+            totaldata = JSON.parse(localStorage.getItem("CartData")) || [];
+            totalbill(totaldata)
+        })
+
+        let cnt = document.createElement("p")
+        cnt.innerText = quantity
+        cnt.classList = "countnum"
+        let minus = document.createElement("button")
+        minus.innerText = "-"
+        minus.classList = "minus"
+        minus.addEventListener("click", function () {
+            quantity--
+            if (quantity <= 0) {
+                quantity = 1
+                cnt.innerText = quantity
+            }
+            cnt.innerText = quantity
+            el.quantity = quantity
+            price.innerText = el.price * quantity
+            el.total = el.price * quantity
+            localStorage.setItem("CartData", JSON.stringify(CartData))
+            totaldata = JSON.parse(localStorage.getItem("CartData")) || [];
+            totalbill(totaldata)
+        })
+
+        let qunatity_div = document.createElement("div")
+        qunatity_div.classList = "quantity-div"
+
+        qunatity_div.append(minus, cnt, plus)
+
+
+        // delete function
+        let cancel = document.createElement("button")
+        cancel.innerText = "Delete"
+        cancel.addEventListener("click", function () {
+            let deleted = data.filter((element) => {
+                return el.id != element.id
+            })
+            displaycard(deleted)
+            localStorage.setItem("CartData", JSON.stringify(deleted))
+            totalbill(deleted)
+        })
+
+        div.append(img, title,diss, price, qunatity_div, cancel)
+
+        container.append(div)
+    });
+}
+
+</script>

@@ -115,35 +115,69 @@ nav {
 }
 
 
-/* No result found */
 
-#notavailable {
+/* added data to cart */
+#empty-cart {
+    height: auto;
+    width: 50%;
+    margin: auto;
     text-align: center;
-    margin-top: 150px;
-    display: none;
-}
 
-#notavailable> :nth-child(1) {
-    font-size: 20px;
-}
+  }
 
-#notavailable> :nth-child(2) {
-    font-size: 20px;
-}
+  #addedData {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 25px;
+    margin: auto;
 
-#notavailable> :nth-child(4) {
-    font-size: 40px;
-    margin-top: 50px;
-}
+  }
 
-#notavailable> :nth-child(5) {
-    font-size: 20px;
-    font-size: 15px;
-    color: rgb(148, 145, 145);
-}
+  #addedData>div {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+    padding: 8px;
 
+  }
 
-/* footer PART */
+  #addedData>div>img {
+    height: auto;
+    width: 80%;
+    margin: auto;
+  }
+
+  #addedData>div>button {
+    background-color: black;
+    color: white;
+    padding: 10px 90px 10px 90px;
+    margin-top: 10px;
+    cursor: pointer;
+
+  }
+
+  #addedData>div>div {
+
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    margin: auto;
+    cursor: pointer;
+  }
+
+  #addedData>div>div>button{
+    width: 18%;
+  }
+  #addedData>div>div>span {
+    margin-top: 40px;
+  }
+
+/* 
+  footer part */
+
+  
 #footer{
     display: flex;
     justify-content: space-evenly;

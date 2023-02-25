@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup page</title>
-   <link rel="stylesheet" href="./styling/register.css">
-   <script src="https://kit.fontawesome.com/70e0f6f431.js" crossorigin="anonymous"></script>
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/70e0f6f431.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="./styling/COATS & JACKETS.css">
+
 </head>
 <body>
-    <!-- Nav bar -->
+
+     <!-- Nav bar -->
     <nav>
         <div id="nav">
             <div id="logo">
@@ -34,37 +36,37 @@
         <div id="options">
 
             <a href="./TOPS & SWEATERS.html">TOPS & SWEATERS</a>
-            <a href="./women.html">DRESSES</a>
+            <a id="womenclick" href="./women.html">DRESSES</a>
             <a href="./COATS & JACKETS.html">COATS & JACKETS</a>
-            <a href="./SLEEPWEAR.html">SLEEPWEAR</a>
-            <a href="./SHOES & ACCESSORIES.html">SHOES & ACCESSORIES</a>
-            <a href="./SWIMWEAR.html">SWIMWEAR</a>
+            <a href="">SLEEPWEAR</a>
+            <a href="">SHOES & ACCESSORIES</a>
+            <a href="">SWIMWEAR</a>
 
         </div>
     </nav>
 
 
-    
-    <div id="form" action="/action_page.php">
-        <div class="container" >
-            <h1>Register</h1>
-              <p>Please fill in this form to create an account.</p>
-              <hr>
-              <label for="name"><b>Name</b></label>
-              <input type="text" placeholder="Enter name"  id="name" required>
-              <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email"  id="email" required>
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password"  id="pass" required>
-            <button onclick="onregi()" class="registerbtn" >Register</button>
-        </div>
-        <div class="container signin">
-            <p>Already have an account? <a href="./login.html">Sign in</a>.</p>
-          </div>
-    </div>
 
-  
-          <!-- footer part -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer part -->
     <div id="footer">
 
         <div>
@@ -111,11 +113,13 @@
             
         </div>
     </div>
+
 </body>
 </html>
 
 <script>
-    let user = document.querySelector("#user");
+
+let user = document.querySelector("#user");
 
 setTimeout(() => {
     user.addEventListener("click", () => {
@@ -130,32 +134,6 @@ setTimeout(() => {
         window.location.assign("./bag.html")
     })
 }, 1000)
-
-
-const onregi=()=>{
-     
-    payload={
-        name:document.getElementById("name").value,
-        email:document.getElementById("email").value,
-        pass:document.getElementById("pass").value
-    };
-
-    
-  fetch("https://clean-turtleneck-shirt-calf.cyclic.app/member/register",{
-    method:"POST",
-    headers:{
-        "Content-type":"application/json"
-    },
-    body:JSON.stringify(payload)
-  }).then(res=>res.json())
-  .then(res=>{
-     console.log(res);
-     swal("", "You are succesfull registered", "success");
-     //window.location.assign("../frontend/login.html")
-  })
-  .catch((err)=>console.log(err));
-  swal("", "Can not register", "fail");
-}
 
 
 </script>

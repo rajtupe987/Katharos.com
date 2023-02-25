@@ -1,92 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./styling/women.css">
     <script src="https://kit.fontawesome.com/70e0f6f431.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <style>
-        #maincontainer {
-            width: 95%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            text-align: center;
-            margin: auto;
-        }
+    <link rel="stylesheet" href="./styling/SHOES & ACCESSORIES.css">
 
-        #maincontainer>div>img {
-            width: 80%;
-        }
-
-        #maincontainer>div>button {
-            margin: auto;
-        }
-
-        body {
-            font-family: "Lato", sans-serif;
-        }
-
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #e7e7e7;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
-
-        .sidebar a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover {
-            color: #ff5ac3;
-        }
-
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        .openbtn {
-            font-size: 20px;
-            cursor: pointer;
-            background-color: #d80d73;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-        }
-
-        .openbtn:hover {
-            background-color: #fa3ca1;
-        }
-
-        #main {
-            transition: margin-left .5s;
-            padding: 16px;
-        }
-    </style>
 </head>
-
 <body>
-    <!-- Nav bar -->
+
+     <!-- Nav bar -->
     <nav>
         <div id="nav">
             <div id="logo">
@@ -120,49 +46,29 @@
     </nav>
 
 
-    <!-- filter part -->
 
 
 
 
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-
-        <div id="container">
-            <div id="filter-box">
-                <h1>FILTERS</h1>
-                <form id="category" class="filter1">
-                    <input type="checkbox" id="men" name="men" value="men" tabindex="1"> Men<br>
-                    <input type="checkbox" id="women" name="women" value="women" tabindex="2"> Women
-                </form>
-
-                <form id="sort" class="filter1">
-                    <h3>PRICE</h3>
-                    <input type="checkbox" id="LTH" value="LTH" tabindex="1"> Low to High<br>
-                    <input type="checkbox" id="HTL" value="HTL" tabindex="2"> High to Low<br>
-                </form>
-
-                <form class="filter1">
-                    <h3>BRANDS</h3>
-                    <input type="checkbox" value="shirt" tabindex="1"> Shirt<br>
-                    <input type="checkbox" value="jeans" tabindex="2"> Jeans<br>
-                    <input type="checkbox" value="Wama Trendz" tabindex="3"> Wama Trendz<br>
-                    <input type="checkbox" value="pannkh" tabindex="4"> Pannkh<br>
-                </form>
-            </div>
-        </div>
-
-    </div>
-
-    <div id="main">
-        <button class="openbtn" onclick="openNav()">☰ Open Filters</button>
-
-    </div>
 
 
-    <div id="maincontainer">
+  <!-- products part -->
+  <div id="maincontainer">
 
-    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -214,41 +120,31 @@
         </div>
     </div>
 
-
 </body>
-
 </html>
 
 <script>
 
+let user = document.querySelector("#user");
 
-    function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    }
+setTimeout(() => {
+    user.addEventListener("click", () => {
+        window.location.assign("./register.html")
+    })
+}, 1000);
 
-    function closeNav() {
-        document.getElementById("mySidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-    }
+let bag = document.querySelector("#bag");
 
-    let user = document.querySelector("#user");
+setTimeout(() => {
+    bag.addEventListener("click", () => {
+        window.location.assign("./bag.html")
+    })
+}, 1000)
 
-    setTimeout(() => {
-        user.addEventListener("click", () => {
-            window.location.assign("./register.html")
-        })
-    }, 1000);
 
-    let bag = document.querySelector("#bag");
 
-    setTimeout(() => {
-        bag.addEventListener("click", () => {
-            window.location.assign("./bag.html")
-        })
-    }, 1000)
 
-    fetch("https://clean-turtleneck-shirt-calf.cyclic.app/women")
+fetch("http://localhost:1300/shoes")
         .then((res) => {
             return res.json()
         })
@@ -318,6 +214,8 @@
         })
 
     }
+
+
 
 
 
