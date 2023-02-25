@@ -17,18 +17,65 @@
               <p>Please fill in this form to Login to your account.</p>
               <hr>
               <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email"  id="email">
+              <input type="text" placeholder="Enter Email"  id="email" required>
               <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password"  id="pass">
+              <input type="password" placeholder="Enter Password"  id="pass" required>
             <button onclick="onlogin()" class="registerbtn" >Register</button>
         </div>
 
         <div class="container signin">
-            <p>Don't Have an Acoount? <a href="#">Register here</a>.</p>
+            <p>Don't Have an Acoount? <a href="./register.html">Register here</a>.</p>
           </div>
 
     </div>
 
+<!-- footer part -->
+<div id="footer">
+
+  <div>
+      <h3>Customer Service</h3>
+      <p>Contact U</p>
+      <p>Shopping Info</p>
+      <p>Shipping Info</p>
+      <p>Returns</p>
+      <p>Exchanges</p>
+      <p>Billing & Payment</p>
+      <p>Size & Fit</p>
+      <p>International</p>
+  </div>
+  <div>
+      <h3>My Account</h3>
+      <p>Sign In / Register</p>
+      <p>Track My Order</p>
+      <p>Return Order</p>
+      <p>Order History</p>
+      <p>Wishlist</p>
+      <p>Offers & Coupons</p>
+  </div>
+  <div>
+      <h3>Credit Card</h3>
+      <p>Apply Now</p>
+      <p>Learn More</p>
+      <p>Pay My Bill</p>
+      <p>Pay My Bill</p>
+      <p>Catalog</p>
+      <p>Order From Catalog</p>
+  </div>
+  <div>
+      <h3>Catherines</h3>
+      <p>About Us</p>
+      <p>About Fullbeauty Brands</p>
+      <p>Shipping To</p>
+      <p>Turkmenistan</p>
+      <div>
+          <img src="https://assets.pharmeasy.in/apothecary/images/Instagram.svg?dim=64x0" alt="">
+          <img src="https://assets.pharmeasy.in/apothecary/images/facebook.svg?dim=64x0" alt="">
+          <img src="https://assets.pharmeasy.in/apothecary/images/Youtube.svg?dim=64x0" alt="">
+          <img src="https://assets.pharmeasy.in/apothecary/images/Twitter.svg?dim=64x0" alt="">
+      </div>
+      
+  </div>
+</div>
 
 
 
@@ -44,7 +91,7 @@
             pass:document.getElementById("pass").value
         };
     
-      fetch("http://localhost:1300/member/login",{
+      fetch("https://clean-turtleneck-shirt-calf.cyclic.app/member/login",{
         method:"POST",
         headers:{
             "Content-type":"application/json"

@@ -9,7 +9,10 @@ const cors=require("cors");
 
 
 const {womenRoute}=require("./Routes/women.route")
-
+const {sweterRoute}=require("./Routes/TOPS & SWEATERS")
+const {swimmerRoute}=require("./Routes/SWIMWEAR")
+const {sleepRoute}=require("./Routes/SLEEPWEAR")
+const {shoesRoute}=require("./Routes/SHOES & ACCESSORIES.routes")
 
 
 const app=express();
@@ -29,7 +32,11 @@ app.get("/",(req,res)=>{
 });
 
 app.use("/member",userRoute);
-app.use("/women",womenRoute)
+app.use("/women",womenRoute);
+app.use("/sweter",sweterRoute);
+app.use("/swimwear",swimmerRoute);
+app.use("/sleep",sleepRoute);
+app.use("/shoes",shoesRoute)
 app.use(authenticate)
 
 

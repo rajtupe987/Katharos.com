@@ -18,10 +18,10 @@ womenRoute.get("/", async(req, res) => {
 });
 
 womenRoute.post("/createwomendata", async (req, res) => {
-    const {  image,title,diss,price} = req.body;
+    const {id,image,title,diss,price} = req.body;
     
     try {
-        const app = new womenmodel({ image,title,diss,price });
+        const app = new womenmodel({id,image,title,diss,price });
         await app.save();
         res.send(({ "mag": "women data created" }));  
     } catch (error) {
