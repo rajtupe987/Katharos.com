@@ -12,11 +12,11 @@
     <style>
         #maincontainer {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            
         }
-        #maincontainer>img{
-            width: 100%;
+        #maincontainer>div>img{
+            width: 80%;
         }
     </style>
 </head>
@@ -54,6 +54,32 @@
 
         </div>
     </nav>
+
+
+    <!-- filter part -->
+
+    <div id="container">
+        <div id="filter-box">
+          <h1>FILTERS</h1>
+          <form id="category" class="filter1">
+            <input type="checkbox" id="men" name="men" value="men" tabindex="1"> Men<br>
+            <input type="checkbox" id="women" name="women" value="women" tabindex="2"> Women
+          </form>
+    
+          <form id="sort" class="filter1">
+            <h3>PRICE</h3>
+            <input type="checkbox" id="LTH" value="LTH" tabindex="1"> Low to High<br>
+            <input type="checkbox" id="HTL" value="HTL" tabindex="2"> High to Low<br>
+          </form>
+    
+          <form class="filter1">
+            <h3>BRANDS</h3>
+            <input type="checkbox" value="shirt" tabindex="1"> Shirt<br>
+            <input type="checkbox" value="jeans" tabindex="2"> Jeans<br>
+            <input type="checkbox" value="Wama Trendz" tabindex="3"> Wama Trendz<br>
+            <input type="checkbox" value="pannkh" tabindex="4"> Pannkh<br>
+          </form>
+        </div>
 
 
 
