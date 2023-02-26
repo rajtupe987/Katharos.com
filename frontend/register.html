@@ -115,22 +115,35 @@
 </html>
 
 <script>
-    let user = document.querySelector("#user");
+let user=document.querySelector("#user");
 
-setTimeout(() => {
-    user.addEventListener("click", () => {
+user.addEventListener("click",()=>{
+
+    setTimeout(()=>{
         window.location.assign("./register.html")
-    })
-}, 1000);
+    },1000);
+    
+})
 
-let bag = document.querySelector("#bag");
+let bag=document.querySelector("#bag");
 
-setTimeout(() => {
-    bag.addEventListener("click", () => {
+
+bag.addEventListener("click",()=>{
+
+    setTimeout(()=>{
         window.location.assign("./bag.html")
-    })
-}, 1000)
+    },1000)
 
+    
+})
+let homebtn=document.querySelector("#logo>img");
+
+homebtn.addEventListener("click",()=>{
+
+    setTimeout(()=>{
+        window.location.assign("./index.html")
+    },1000)
+})
 
 const onregi=()=>{
      

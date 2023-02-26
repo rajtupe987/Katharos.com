@@ -14,6 +14,10 @@ const {swimmerRoute}=require("./Routes/SWIMWEAR")
 const {sleepRoute}=require("./Routes/SLEEPWEAR")
 const {shoesRoute}=require("./Routes/SHOES & ACCESSORIES.routes")
 
+const {jacketsRoute}=require("./Routes/COATS & JACKETS");
+
+
+
 
 const app=express();
 app.use(express.json());
@@ -36,7 +40,8 @@ app.use("/women",womenRoute);
 app.use("/sweter",sweterRoute);
 app.use("/swimwear",swimmerRoute);
 app.use("/sleep",sleepRoute);
-app.use("/shoes",shoesRoute)
+app.use("/shoes",shoesRoute);
+app.use("/jackets",jacketsRoute)
 app.use(authenticate)
 
 

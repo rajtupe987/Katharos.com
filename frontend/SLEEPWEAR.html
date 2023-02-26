@@ -48,6 +48,23 @@
 
 
 
+    <div id="fil-sort">
+        <select id="filter">
+            <option value="">Filter By Course</option>
+            <option value="All">All</option>
+            <option value="Dreams & Co">Dreams & Co</option>
+            <option value="Cotton Gown">Cotton Gown</option>
+            <option value="Long-Sleeve Sleepshirts">Long-Sleeve Sleepshirts</option>
+          
+        </select>
+        <select id="Sort_items" onchange="Sort()">
+            <option value="">Sort By Course</option>
+            <option value="All">All</option>
+            <option value="Low to High price">Low to High price</option>
+            <option value="High to Low price">High to Low price</option>
+
+        </select>
+    </div>
 
 
   <!-- products part -->
@@ -123,30 +140,44 @@
 
 <script>
 
-let user = document.querySelector("#user");
+let user=document.querySelector("#user");
 
-setTimeout(() => {
-    user.addEventListener("click", () => {
+user.addEventListener("click",()=>{
+
+    setTimeout(()=>{
         window.location.assign("./register.html")
-    })
-}, 1000);
+    },1000);
+    
+})
 
-let bag = document.querySelector("#bag");
+let bag=document.querySelector("#bag");
 
-setTimeout(() => {
-    bag.addEventListener("click", () => {
+
+bag.addEventListener("click",()=>{
+
+    setTimeout(()=>{
         window.location.assign("./bag.html")
-    })
-}, 1000)
+    },1000)
 
+    
+})
+let homebtn=document.querySelector("#logo>img");
 
+homebtn.addEventListener("click",()=>{
+
+    setTimeout(()=>{
+        window.location.assign("./index.html")
+    },1000)
+})
+
+let arr=[]
 
 fetch("http://localhost:1300/sleep")
         .then((res) => {
             return res.json()
         })
         .then((data) => {
-            alternate = data
+            arr = data
             console.log(data)
             let maincontainer = document.querySelector("#maincontainer")
 
@@ -213,5 +244,41 @@ fetch("http://localhost:1300/sleep")
     }
 
 
+    
+// filter and sort part
+
+
+filter.addEventListener("change", function () {
+        if (filter.value == "" || filter.value == "All") {
+            displayData(arr)
+        } else {
+            let filterdData = arr.filter(function (elem) {
+                return elem.diss === filter.value
+            })
+            displayData(filterdData)
+        }
+
+    });
+
+
+    function Sort() {
+
+        if(Sort_items.value == "" || Sort_items.value == "All"){
+            displayData(arr)
+        }
+        else{
+            let x = document.querySelector("#Sort_items").value;
+
+        if (x === "Low to High price") {
+            arr.sort((a, b) => a.price - b.price)
+        } else if (x === "High to Low price") {
+            arr.sort((a, b) => b.price - a.price)
+        }
+
+        //console.log(data)
+        displayData(arr)
+        }
+        
+    }
 
 </script>

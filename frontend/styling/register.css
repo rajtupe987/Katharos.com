@@ -22,8 +22,9 @@ body {
 nav {
     height: 140px;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid rgb(206, 206, 206);
     background-color: white;
+    
 }
 
 #nav {

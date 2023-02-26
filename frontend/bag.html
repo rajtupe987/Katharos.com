@@ -52,6 +52,20 @@
 
     </div>
 
+
+
+    <!-- checkout page -->
+    <div id="finalpart">
+ 
+        <h3 id="total2"> total products <span id="prod">0</span></h3>
+        <h3 id="totalprice2">Your total bill =<span id="totalp"></span></h3>
+        <h3 id="tax">SALES TAX = <span id="tax2"></span></h3>
+        <hr>
+        <h3 id="finaltotal">ORDER TOTAL - <span id="ordert"></span></h3>
+        <button id="pay2"><a href="#">CHECKOUT</a>
+    
+    </div>
+
     <!-- footer part -->
     <div id="footer">
 
@@ -120,6 +134,15 @@ setTimeout(() => {
         window.location.assign("./bag.html")
     })
 }, 1000)
+
+let homebtn=document.querySelector("#logo>img");
+
+homebtn.addEventListener("click",()=>{
+
+    setTimeout(()=>{
+        window.location.assign("./index.html")
+    },1000)
+})
 
 // let username = localStorage.getItem("username")
 
@@ -241,5 +264,19 @@ function displaycard(data) {
         container.append(div)
     });
 }
+
+
+
+
+// checkout part
+
+document.querySelector("#pay2").addEventListener("click",()=>{
+
+    setTimeout(()=>{
+    window.location.assign("../frontend/payment.html")
+},2000);
+})
+
+
 
 </script>

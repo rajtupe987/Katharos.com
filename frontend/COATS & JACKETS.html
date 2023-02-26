@@ -38,16 +38,38 @@
             <a href="./TOPS & SWEATERS.html">TOPS & SWEATERS</a>
             <a id="womenclick" href="./women.html">DRESSES</a>
             <a href="./COATS & JACKETS.html">COATS & JACKETS</a>
-            <a href="">SLEEPWEAR</a>
-            <a href="">SHOES & ACCESSORIES</a>
-            <a href="">SWIMWEAR</a>
+            <a href="./SLEEPWEAR.html">SLEEPWEAR</a>
+            <a href="./SHOES & ACCESSORIES.html">SHOES & ACCESSORIES</a>
+            <a href="./SWIMWEAR.html">SWIMWEAR</a>
 
         </div>
     </nav>
 
 
+    
+    <div id="fil-sort">
+        <select id="filter">
+            <option value="">Filter By Course</option>
+            <option value="All">All</option>
+            <option value="Cascade Jacket">Cascade Jacket</option>
+            <option value="Fleece Jacket">Fleece Jacket</option>
+            <option value="Classic Cotton">Classic Cotton</option>
+            <option value="French Terry Hoodie">French Terry Hoodie</option>
+        </select>
+        <select id="Sort_items" onchange="Sort()">
+            <option value="">Sort By Course</option>
+            <option value="All">All</option>
+            <option value="Low to High price">Low to High price</option>
+            <option value="High to Low price">High to Low price</option>
+
+        </select>
+    </div>
 
 
+  <!-- products part -->
+  <div id="maincontainer">
+
+  </div>
 
 
 
@@ -119,21 +141,147 @@
 
 <script>
 
-let user = document.querySelector("#user");
+let user=document.querySelector("#user");
 
-setTimeout(() => {
-    user.addEventListener("click", () => {
+user.addEventListener("click",()=>{
+
+    setTimeout(()=>{
         window.location.assign("./register.html")
-    })
-}, 1000);
+    },1000);
+    
+})
 
-let bag = document.querySelector("#bag");
+let bag=document.querySelector("#bag");
 
-setTimeout(() => {
-    bag.addEventListener("click", () => {
+
+bag.addEventListener("click",()=>{
+
+    setTimeout(()=>{
         window.location.assign("./bag.html")
-    })
-}, 1000)
+    },1000)
+
+    
+})
+let homebtn=document.querySelector("#logo>img");
+
+homebtn.addEventListener("click",()=>{
+
+    setTimeout(()=>{
+        window.location.assign("./index.html")
+    },1000)
+})
 
 
+let arr=[]
+fetch("http://localhost:1300/jackets")
+        .then((res) => {
+            return res.json()
+        })
+        .then((data) => {
+            arr = data
+            console.log(data)
+            let maincontainer = document.querySelector("#maincontainer")
+
+            displayData(data);
+
+        }).catch((err) => console.log(err))
+
+
+
+
+
+    let CartData = JSON.parse(localStorage.getItem("CartData")) || []
+
+    function displayData(data) {
+        document.querySelector("#maincontainer").innerHTML = null
+        data.forEach((el) => {
+            let div = document.createElement("div")
+            let img = document.createElement("img")
+            img.setAttribute("src", el.image)
+
+            let title = document.createElement("h3")
+            title.innerText = el.title.substring(0, 30) + "..."
+
+            let diss = document.createElement("p")
+            diss.innerText = el.diss;
+            let price = document.createElement("h4")
+            price.innerHTML = el.price;
+
+            let button = document.createElement("button")
+            button.innerText = "Add to Cart"
+
+
+            button.addEventListener("click", (event) => {
+                event.stopPropagation()
+
+                let alreday = false
+
+                for (let i = 0; i < CartData.length; i++) {
+                    console.log(CartData[i].id)
+                    if (CartData[i].id === el.id) {
+                        alreday = true
+                        break;
+                    }
+                }
+
+                if (alreday == true) {
+                    swal("", "Product already in the cart", "info")
+                }
+                else {
+                    el.quantity = 1
+                    CartData.push(el)
+                    localStorage.setItem("CartData", JSON.stringify(CartData))
+                    swal("", "Product added to cart successfully", "success");
+                }
+            })
+
+
+
+            div.append(img, title, diss, price, button)
+            maincontainer.append(div)
+
+        })
+
+    }
+
+
+
+
+
+    
+// filter and sort part
+
+
+filter.addEventListener("change", function () {
+        if (filter.value == "" || filter.value == "All") {
+            displayData(arr)
+        } else {
+            let filterdData = arr.filter(function (elem) {
+                return elem.diss === filter.value
+            })
+            displayData(filterdData)
+        }
+
+    });
+
+
+    function Sort() {
+
+        if(Sort_items.value == "" || Sort_items.value == "All"){
+            displayData(arr)
+        }
+        else{
+            let x = document.querySelector("#Sort_items").value;
+
+        if (x === "Low to High price") {
+            arr.sort((a, b) => a.price - b.price)
+        } else if (x === "High to Low price") {
+            arr.sort((a, b) => b.price - a.price)
+        }
+
+        //console.log(data)
+        displayData(arr)
+        }
+        
+    }
 </script>
