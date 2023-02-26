@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login page</title>
     <link rel="stylesheet" href="./styling/login.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
+
 <body>
 
 
@@ -14,97 +17,111 @@
 
         <div id="container">
             <h1>Login here!</h1>
-              <p>Please fill in this form to Login to your account.</p>
-              <hr>
-              <label for="email"><b>Email</b></label>
-              <input type="text" placeholder="Enter Email"  id="email" required>
-              <label for="psw"><b>Password</b></label>
-              <input type="password" placeholder="Enter Password"  id="pass" required>
-            <button onclick="onlogin()" class="registerbtn" >Register</button>
+            <p>Please fill in this form to Login to your account.</p>
+            <hr>
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter name" id="name" required>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" id="email" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="pass" required>
+            <button onclick="onlogin()" class="registerbtn">Login</button>
         </div>
 
         <div class="container signin">
             <p>Don't Have an Acoount? <a href="./register.html">Register here</a>.</p>
-          </div>
+        </div>
 
     </div>
 
-<!-- footer part -->
-<div id="footer">
+    <!-- footer part -->
+    <div id="footer">
 
-  <div>
-      <h3>Customer Service</h3>
-      <p>Contact U</p>
-      <p>Shopping Info</p>
-      <p>Shipping Info</p>
-      <p>Returns</p>
-      <p>Exchanges</p>
-      <p>Billing & Payment</p>
-      <p>Size & Fit</p>
-      <p>International</p>
-  </div>
-  <div>
-      <h3>My Account</h3>
-      <p>Sign In / Register</p>
-      <p>Track My Order</p>
-      <p>Return Order</p>
-      <p>Order History</p>
-      <p>Wishlist</p>
-      <p>Offers & Coupons</p>
-  </div>
-  <div>
-      <h3>Credit Card</h3>
-      <p>Apply Now</p>
-      <p>Learn More</p>
-      <p>Pay My Bill</p>
-      <p>Pay My Bill</p>
-      <p>Catalog</p>
-      <p>Order From Catalog</p>
-  </div>
-  <div>
-      <h3>Catherines</h3>
-      <p>About Us</p>
-      <p>About Fullbeauty Brands</p>
-      <p>Shipping To</p>
-      <p>Turkmenistan</p>
-      <div>
-          <img src="https://assets.pharmeasy.in/apothecary/images/Instagram.svg?dim=64x0" alt="">
-          <img src="https://assets.pharmeasy.in/apothecary/images/facebook.svg?dim=64x0" alt="">
-          <img src="https://assets.pharmeasy.in/apothecary/images/Youtube.svg?dim=64x0" alt="">
-          <img src="https://assets.pharmeasy.in/apothecary/images/Twitter.svg?dim=64x0" alt="">
-      </div>
-      
-  </div>
-</div>
+        <div>
+            <h3>Customer Service</h3>
+            <p>Contact U</p>
+            <p>Shopping Info</p>
+            <p>Shipping Info</p>
+            <p>Returns</p>
+            <p>Exchanges</p>
+            <p>Billing & Payment</p>
+            <p>Size & Fit</p>
+            <p>International</p>
+        </div>
+        <div>
+            <h3>My Account</h3>
+            <p>Sign In / Register</p>
+            <p>Track My Order</p>
+            <p>Return Order</p>
+            <p>Order History</p>
+            <p>Wishlist</p>
+            <p>Offers & Coupons</p>
+        </div>
+        <div>
+            <h3>Credit Card</h3>
+            <p>Apply Now</p>
+            <p>Learn More</p>
+            <p>Pay My Bill</p>
+            <p>Pay My Bill</p>
+            <p>Catalog</p>
+            <p>Order From Catalog</p>
+        </div>
+        <div>
+            <h3>Catherines</h3>
+            <p>About Us</p>
+            <p>About Fullbeauty Brands</p>
+            <p>Shipping To</p>
+            <p>Turkmenistan</p>
+            <div>
+                <img src="https://assets.pharmeasy.in/apothecary/images/Instagram.svg?dim=64x0" alt="">
+                <img src="https://assets.pharmeasy.in/apothecary/images/facebook.svg?dim=64x0" alt="">
+                <img src="https://assets.pharmeasy.in/apothecary/images/Youtube.svg?dim=64x0" alt="">
+                <img src="https://assets.pharmeasy.in/apothecary/images/Twitter.svg?dim=64x0" alt="">
+            </div>
+
+        </div>
+    </div>
 
 
 
 </body>
+
 </html>
 <script>
 
 
-    const onlogin=()=>{
-         
-        payload={
-            email:document.getElementById("email").value,
-            pass:document.getElementById("pass").value
+    const onlogin = () => {
+
+        payload = {
+            name:document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            pass: document.getElementById("pass").value
         };
-    
-      fetch("https://clean-turtleneck-shirt-calf.cyclic.app/member/login",{
-        method:"POST",
-        headers:{
-            "Content-type":"application/json"
-        },
-        body:JSON.stringify(payload)
-      }).then(res=>res.json())
-      .then(res=>{
-         console.log(res);
-         localStorage.setItem("token",res.token);
-         window.location.assign("../frontend/index.html")
-      })
-      .catch(err=>console.log(err))
+
+        fetch("https://clean-turtleneck-shirt-calf.cyclic.app/member/login", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        }).then(res => res.json())
+            .then(res => {
+                console.log(res);
+                localStorage.setItem("token", res.token);
+                
+                 localStorage.setItem("username",payload.name)
+                console.log(res.name)
+                swal("", "successfully Login", "success");
+             
+                setTimeout(()=>{
+                    location.href = "./index.html";
+                },1000)
+             })
+            .catch(err =>{
+                console.log(err)
+                swal("", "successfully Login", "success");
+            })
     }
-    
-    
-    </script>
+  
+
+</script>

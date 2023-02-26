@@ -145,7 +145,7 @@ let user=document.querySelector("#user");
 user.addEventListener("click",()=>{
 
     setTimeout(()=>{
-        window.location.assign("./register.html")
+        location.href="./register.html"
     },1000);
     
 })
@@ -156,7 +156,7 @@ let bag=document.querySelector("#bag");
 bag.addEventListener("click",()=>{
 
     setTimeout(()=>{
-        window.location.assign("./bag.html")
+       location.href="./bag.html"
     },1000)
 
     
@@ -166,13 +166,13 @@ let homebtn=document.querySelector("#logo>img");
 homebtn.addEventListener("click",()=>{
 
     setTimeout(()=>{
-        window.location.assign("./index.html")
+     location.href="./index.html"
     },1000)
 })
 
 let arr=[]
 
-fetch("http://localhost:1300/sleep")
+fetch("https://clean-turtleneck-shirt-calf.cyclic.app/sleep")
         .then((res) => {
             return res.json()
         })
