@@ -9,80 +9,7 @@
     <link rel="stylesheet" href="./styling/women.css">
     <script src="https://kit.fontawesome.com/70e0f6f431.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <style>
-        #maincontainer {
-            width: 95%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            text-align: center;
-            margin: auto;
-        }
-
-        #maincontainer>div>img {
-            width: 80%;
-        }
-
-        #maincontainer>div>button {
-            margin: auto;
-        }
-
-        body {
-            font-family: "Lato", sans-serif;
-        }
-
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #e7e7e7;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
-
-        .sidebar a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover {
-            color: #ff5ac3;
-        }
-
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        .openbtn {
-            font-size: 20px;
-            cursor: pointer;
-            background-color: #d80d73;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-        }
-
-        .openbtn:hover {
-            background-color: #fa3ca1;
-        }
-
-        #main {
-            transition: margin-left .5s;
-            padding: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="./styling//women.css">
 </head>
 
 <body>
@@ -131,23 +58,19 @@
         <div id="container">
             <div id="filter-box">
                 <h1>FILTERS</h1>
-                <form id="category" class="filter1">
-                    <input type="checkbox" id="men" name="men" value="men" tabindex="1"> Men<br>
-                    <input type="checkbox" id="women" name="women" value="women" tabindex="2"> Women
-                </form>
 
                 <form id="sort" class="filter1">
                     <h3>PRICE</h3>
-                    <input type="checkbox" id="LTH" value="LTH" tabindex="1"> Low to High<br>
-                    <input type="checkbox" id="HTL" value="HTL" tabindex="2"> High to Low<br>
+                    <input type="checkbox" id="LTH" value="LTH" tabindex="1">Low to High<br>
+                    <input type="checkbox" id="HTL" value="HTL" tabindex="2">High to Low<br>
                 </form>
 
                 <form class="filter1">
                     <h3>BRANDS</h3>
-                    <input type="checkbox" value="shirt" tabindex="1"> Shirt<br>
-                    <input type="checkbox" value="jeans" tabindex="2"> Jeans<br>
-                    <input type="checkbox" value="Wama Trendz" tabindex="3"> Wama Trendz<br>
-                    <input type="checkbox" value="pannkh" tabindex="4"> Pannkh<br>
+                    <input type="checkbox" value="Jessica London" tabindex="1"> Jessica London<br>
+                    <input type="checkbox" value="Roaman's" tabindex="2"> Roaman's<br>
+                    <input type="checkbox" value="London Collection" tabindex="3"> London Collection<br>
+                    <input type="checkbox" value="Beaded Dress Set" tabindex="4"> Beaded Dress Set<br>
                 </form>
             </div>
         </div>
@@ -157,6 +80,25 @@
     <div id="main">
         <button class="openbtn" onclick="openNav()">☰ Open Filters</button>
 
+    </div>
+
+
+    <div id="fil-sort">
+        <select id="filter">
+            <option value="">Filter By Course</option>
+            <option value="all">All</option>
+            <option value="Beaded Dress Set">Beaded Dress Set</option>
+            <option value="Jessica London">Jessica London</option>
+            <option value="Roaman's">Roaman's</option>
+            <option value="London Collection">London Collection</option>
+        </select>
+        <select id="Sort_items" onchange="Sort()">
+            <option value="">Sort By Course</option>
+            <option value="All">All</option>
+            <option value="Low to High price">Low to High price</option>
+            <option value="High to Low price">High to Low price</option>
+
+        </select>
     </div>
 
 
@@ -240,6 +182,15 @@
             window.location.assign("./register.html")
         }, 1000);
 
+    });
+
+    let homebtn = document.querySelector("#logo>img");
+
+    homebtn.addEventListener("click", () => {
+
+        setTimeout(() => {
+            window.location.assign("./index.html")
+        }, 2000)
     })
 
     let bag = document.querySelector("#bag");
@@ -254,12 +205,16 @@
 
     })
 
+
+
+    let arr = []
+
     fetch("https://clean-turtleneck-shirt-calf.cyclic.app/women")
         .then((res) => {
             return res.json()
         })
         .then((data) => {
-            alternate = data
+            arr = data
             console.log(data)
             let maincontainer = document.querySelector("#maincontainer")
 
@@ -326,5 +281,36 @@
     }
 
 
+
+
+    // filter and sort part
+
+
+    filter.addEventListener("change", function () {
+        if (filter.value == "" || filter.value == "all") {
+            displayData(arr)
+        } else {
+            let filterdData = arr.filter(function (elem) {
+                return elem.diss === filter.value
+            })
+            displayData(filterdData)
+        }
+
+    });
+
+
+    function Sort() {
+
+        let x = document.querySelector("#Sort_items").value;
+
+        if (x === "Low to High price") {
+            arr.sort((a, b) => a.price - b.price)
+        } else if (x === "High to Low price") {
+            arr.sort((a, b) => b.price - a.price)
+        }
+
+        //console.log(data)
+        displayData(arr)
+    }
 
 </script>

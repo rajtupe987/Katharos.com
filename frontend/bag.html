@@ -135,6 +135,15 @@ setTimeout(() => {
     })
 }, 1000)
 
+let homebtn=document.querySelector("#logo>img");
+
+homebtn.addEventListener("click",()=>{
+
+    setTimeout(()=>{
+        window.location.assign("./index.html")
+    },1000)
+})
+
 // let username = localStorage.getItem("username")
 
 // document.querySelector("#username").innerText = `Hello, ${username}`

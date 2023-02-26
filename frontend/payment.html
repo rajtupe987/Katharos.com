@@ -189,11 +189,37 @@ bag.addEventListener("click",()=>{
 
     
 })
+let homebtn=document.querySelector("#logo>img");
 
+homebtn.addEventListener("click",()=>{
 
+    setTimeout(()=>{
+        window.location.assign("./index.html")
+    },1000)
+})
+
+let name=document.querySelector("#fname").value;
+let email=document.querySelector("#email").value;
+let add=document.querySelector("#adr").value;
+
+let city=document.querySelector("#city").value;
+let state=document.querySelector("#state").value;
+let zip=document.querySelector("#zip").value;
+let cname=document.querySelector("#cname").value;
+let ccnum=document.querySelector("#ccnum").value;
+
+let expmonth=document.querySelector("#expmonth").value;
+let expyear=document.querySelector("#expyear").value;
+let cvv=document.querySelector("#cvv").value;
 
 document.querySelector(".btn").addEventListener("click",()=>{
-    swal("", "Your Order is placed succesfully", "success");
+    //swal("", "Your Order is placed succesfully", "success");
+
+    if(name || email || add || city || state || zip || cname || ccnum || expmonth || expyear || cvv){
+      swal("", "Your Order is placed succesfully", "success");
+    }else{
+      swal("", "fill all the data", "info");
+    }
 })
 
 </script>
