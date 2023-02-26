@@ -45,7 +45,9 @@
         </div>
     </nav>
 
-
+ 
+    <h2 id="total">Your  total <span id="fav-total">0</span> Products in the favourites</h2> 
+    <h4 id="totalprice">Your total bill =<span id="fav-sum"></span></h4>
 
     <!-- added Data to cart -->
     <div id="addedData">
@@ -59,7 +61,7 @@
  
         <h3 id="total2"> total products <span id="prod">0</span></h3>
         <h3 id="totalprice2">Your total bill =<span id="totalp"></span></h3>
-        <h3 id="tax">SALES TAX = <span id="tax2"></span></h3>
+     
         <hr>
         <h3 id="finaltotal">ORDER TOTAL - <span id="ordert"></span></h3>
         <button id="pay2"><a href="#">CHECKOUT</a>
@@ -123,7 +125,7 @@
 
 setTimeout(() => {
     user.addEventListener("click", () => {
-        window.location.assign("./register.html")
+        location.href="./register.html"
     })
 }, 1000);
 
@@ -131,7 +133,7 @@ let bag = document.querySelector("#bag");
 
 setTimeout(() => {
     bag.addEventListener("click", () => {
-        window.location.assign("./bag.html")
+        location.href="./bag.html"
     })
 }, 1000)
 
@@ -140,11 +142,12 @@ let homebtn=document.querySelector("#logo>img");
 homebtn.addEventListener("click",()=>{
 
     setTimeout(()=>{
-        window.location.assign("./index.html")
+       location.href="./index.html"
     },1000)
 })
 
-// let username = localStorage.getItem("username")
+ let username = localStorage.getItem("username");
+ console.log(username)
 
 // document.querySelector("#username").innerText = `Hello, ${username}`
 
@@ -172,23 +175,28 @@ logo.addEventListener("click", function (event) {
 
 displaycard(CartData);
 
-// totalbill(CartData)
+totalbill(CartData)
 
-// function totalbill(data) {
-//     let total = data.reduce((acc, el) => {
-//         return acc += el.price * el.quantity
-//     }, 0)
-//     document.querySelector("#totalp").innerText = total;
+function totalbill(data) {
+    let total = data.reduce((acc, el) => {
+        return acc += el.price * el.quantity
+    }, 0)
+    document.querySelector("#fav-sum").innerText = total;
+    document.querySelector("#totalp").innerText = total;
+    document.querySelector("#ordert").innerText=total
 
-// }
+}
 
 
 function displaycard(data) {
     let container = document.querySelector("#addedData")
     container.textContent = null
 
-    // document.querySelector("#fav-total").innerText = data.length;
-    // document.querySelector("#prod").innerText = data.length;
+     document.querySelector("#fav-total").innerText = data.length;
+     
+     document.querySelector("#prod").innerText = data.length;
+
+     
 
     data.forEach(el => {
         let quantity = el.quantity
@@ -273,7 +281,7 @@ function displaycard(data) {
 document.querySelector("#pay2").addEventListener("click",()=>{
 
     setTimeout(()=>{
-    window.location.assign("../frontend/payment.html")
+  location.href="./payment.html"
 },2000);
 })
 
